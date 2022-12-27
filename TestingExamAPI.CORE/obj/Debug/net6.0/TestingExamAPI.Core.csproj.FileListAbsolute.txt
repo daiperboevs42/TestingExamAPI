@@ -1,0 +1,12 @@
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\bin\Debug\net6.0\TestingExamAPI.Core.deps.json
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\bin\Debug\net6.0\TestingExamAPI.Core.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\bin\Debug\net6.0\TestingExamAPI.Core.pdb
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.csproj.AssemblyReference.cache
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.AssemblyInfoInputs.cache
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.AssemblyInfo.cs
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.csproj.CoreCompileInputs.cache
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\refint\TestingExamAPI.Core.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\TestingExamAPI.Core.pdb
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.CORE\obj\Debug\net6.0\ref\TestingExamAPI.Core.dll
