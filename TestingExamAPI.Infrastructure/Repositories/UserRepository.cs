@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,29 +11,43 @@ namespace TestingExamAPI.Infrastructure.Repositories
 {
     public class UserRepository : IRepository<User>
     {
-        public User Create(User entity)
+        private readonly TestingExamAPIContext context;
+        public UserRepository(TestingExamAPIContext context)
         {
-            throw new NotImplementedException();
+            this.context = context;
+        }
+
+        public User Create(User user)
+        {
+            context.Users.Add(user);
+            context.SaveChanges();
+            return user;
         }
 
         public User Delete(int id)
         {
-            throw new NotImplementedException();
+            var userToDelete = context.Users.FirstOrDefault(x => x.Id == id);
+            if (userToDelete == null)
+                throw new InvalidDataException("No user found with given id");
+            context.Users.Remove(userToDelete);
+            return userToDelete;
         }
 
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            return context.Users.FirstOrDefault(x => x.Id == id);
         }
 
         public List<User> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Users.ToList();
         }
 
-        public User Update(User entity)
+        public User Update(User user)
         {
-            throw new NotImplementedException();
+            context.Entry(user).State = EntityState.Modified;
+            context.SaveChanges();
+            return user;
         }
     }
 }

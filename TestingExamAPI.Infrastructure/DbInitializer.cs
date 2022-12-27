@@ -15,20 +15,51 @@ namespace TestingExamAPI.Infrastructure
 
             List<User> users = new List<User>
             {
-                //make users
+                new User{ Name="Martin Emil Wøbbe", Email="SomeEmail@Yahoo.dk", IsAvailable=false},
+                new User{ Name="Martin Park Brodersen", Email="SomeOtherEmail@Yahoo.dk", IsAvailable=true},
+                new User{ Name="Tienesh Sivasubremaniyam", Email="SomeSeperateEmail@Yahoo.dk", IsAvailable=true},
+                new User{ Name="Non Descript Female", Email="TheEmail@Yahoo.dk", IsAvailable=true}
             };
             List<Interest> interests = new List<Interest>
             {
-                //make interests
+                new Interest{ Name="Cars"},
+                new Interest{ Name="Coding"},
+                new Interest{ Name="Cinema"},
+                new Interest{ Name="Carousels"},
+                new Interest{ Name="Cats"},
+                new Interest{ Name="Carpentry"},
+                new Interest{ Name="Cheese"},
+                new Interest{ Name="Coffee"}
             };
-            List<User> preferences = new List<User>
+            List<Preference> preferences = new List<Preference>
             {
-                //make preferences
+                new Preference{ Name="Men" },
+                new Preference{ Name="Women" },
+                new Preference{ Name="Mix" }
             };
 
-            context.Users.AddRange(users);
+            users[0].Interests.Add(interests[0]);
+            users[0].Interests.Add(interests[3]);
+            users[0].Interests.Add(interests[4]);
+
+            users[1].Interests.Add(interests[1]);
+            users[1].Interests.Add(interests[2]);
+            users[1].Interests.Add(interests[6]);
+            users[1].Interests.Add(interests[4]);
+
+            users[2].Interests.Add(interests[1]);
+            users[2].Interests.Add(interests[6]);
+            users[2].Interests.Add(interests[5]);
+            users[2].Interests.Add(interests[7]);
+
+            users[0].Interests.Add(interests[0]);
+            users[0].Interests.Add(interests[5]);
+            users[0].Interests.Add(interests[7]);
+
             context.Interests.AddRange(interests);
             context.Preferences.AddRange(preferences);
+            context.SaveChanges();
+            context.Users.AddRange(users);
             context.SaveChanges();
         }
     }

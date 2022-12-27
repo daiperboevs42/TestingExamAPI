@@ -12,6 +12,6 @@ namespace TestingExamAPI.Infrastructure
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Interest> Interests { get; set; }
-        public DbSet<User> Preferences { get; set; }
+        public DbSet<Preference> Preferences { get; set; }
     }
 }
