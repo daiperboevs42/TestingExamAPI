@@ -5,7 +5,9 @@ using TestingExamAPI.Core.Interfaces;
 
 namespace TestingExamAPI.Controllers
 {
-    public class UserController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class UserController : ControllerBase
     {
         private IUserManager _userManager;
         public UserController(IUserManager userManager)
@@ -14,41 +16,35 @@ namespace TestingExamAPI.Controllers
         }
 
         // GET: UserController
-        public ActionResult Index()
+        [HttpGet]
+        public List<User> GetAll()
         {
-            return View(_userManager.GetAllUsers());
+            return _userManager.GetAllUsers().ToList();
         }
 
         // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet("{id}")]
+        public User Get(int id)
         {
-            if(id == null)
-                return NotFound();
-            return View(_userManager.GetById(id));
+            return _userManager.GetById(id);
         }
 
         // GET: UserController/Create
-        public ActionResult Create(User user)
+        public User Create(User user)
         {
-            if(user == null)
-                return BadRequest();
-            return View(_userManager.CreateUser(user));
+            return _userManager.CreateUser(user);
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(User user)
+        public User Edit(User user)
         {
-            if (user == null)
-                return BadRequest();
-            return View(_userManager.UpdateUser(user));
+            return _userManager.UpdateUser(user);
         }
 
         // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
+        public User Delete(int id)
         {
-            if (id == null)
-                return NotFound();
-            return View(_userManager.DeleteUser(id));
+            return _userManager.DeleteUser(id);
         }
 
     }

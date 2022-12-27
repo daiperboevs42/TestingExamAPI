@@ -13,7 +13,7 @@ namespace TestingExamAPI.Core.Entities
         public string Email { get; set; }
         public bool IsAvailable { get; set; }
         public List<Interest> Interests { get; set; }
-        public List<User> Preferences { get; set; }
+        public List<Preference> Preferences { get; set; }
 
     } 
 }
