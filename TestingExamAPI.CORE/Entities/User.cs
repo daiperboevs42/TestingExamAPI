@@ -12,8 +12,8 @@ namespace TestingExamAPI.Core.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public bool IsAvailable { get; set; }
-        public List<Interest> Interests { get; set; }
-        public List<Preference> Preferences { get; set; }
+        public List<Interest>? Interests { get; set; }
+        public List<Preference>? Preferences { get; set; }
 
     } 
 }
