@@ -12,19 +12,19 @@ namespace TestingExamAPI.Consumer
     public class RequestMaker
     {
         static HttpClient client = new HttpClient();
-        public RequestMaker(){
+        public RequestMaker()
+        {
             client.BaseAddress = new Uri("https://localhost:44316");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            }
+        }
 
 
         public static async Task GetAllUsers()
         {
             HttpResponseMessage response =
             await client.GetAsync("https://localhost:44316/user/");
-            Console.Write(response);
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
         }
@@ -62,25 +62,6 @@ namespace TestingExamAPI.Consumer
             Console.Write(responseBody);
         }
 
-        public static async Task RunAsync()
-        {
-            client.BaseAddress = new Uri("https://localhost:44316");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-
-            try
-            {
-                await GetAllUsers();
-                //await GetSpecificUser();
-                //await CreateUser();
-                //await UpdateUser();
-                //await DeleteUser();
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-            }
-        }
+        
     }
 }
