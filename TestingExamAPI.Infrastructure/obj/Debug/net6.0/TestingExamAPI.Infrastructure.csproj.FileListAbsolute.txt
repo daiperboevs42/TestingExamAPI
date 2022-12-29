@@ -1,0 +1,15 @@
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\bin\Debug\net6.0\TestingExamAPI.Infrastructure.deps.json
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\bin\Debug\net6.0\TestingExamAPI.Infrastructure.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\bin\Debug\net6.0\TestingExamAPI.Infrastructure.pdb
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\bin\Debug\net6.0\TestingExamAPI.Core.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\bin\Debug\net6.0\TestingExamAPI.Core.pdb
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.AssemblyInfo.cs
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.csproj.CopyComplete
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\refint\TestingExamAPI.Infrastructure.dll
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\TestingExamAPI.Infrastructure.pdb
+C:\Users\WøbbePC\source\repos\TestingExamAPI\TestingExamAPI.Infrastructure\obj\Debug\net6.0\ref\TestingExamAPI.Infrastructure.dll
