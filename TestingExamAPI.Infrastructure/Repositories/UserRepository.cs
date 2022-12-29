@@ -29,13 +29,17 @@ namespace TestingExamAPI.Infrastructure.Repositories
             var userToDelete = context.Users.FirstOrDefault(x => x.Id == id);
             if (userToDelete == null)
                 throw new InvalidDataException("No user found with given id");
-            context.Users.Remove(userToDelete);
+            context.Attach(userToDelete).State = EntityState.Deleted;
+            context.SaveChanges();
             return userToDelete;
         }
 
         public User Get(int id)
         {
-            return context.Users.FirstOrDefault(x => x.Id == id);
+            var foundUser = context.Users.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            if(foundUser == null)
+                throw new InvalidDataException("No user found with given id");
+            return foundUser;
         }
 
         public List<User> GetAll()
