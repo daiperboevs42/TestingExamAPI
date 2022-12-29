@@ -2,10 +2,11 @@
 
 namespace TestingExamAPI.Consumer
 {
-    public record class User(
-    [property: JsonPropertyName("Id")] int Id,
-    [property: JsonPropertyName("Name")] string Name,
-    [property: JsonPropertyName("Email")] string Email,
-    [property: JsonPropertyName("IsAvailable")] bool IsAvailable);
-
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public bool IsAvailable { get; set; }
+    }
 }

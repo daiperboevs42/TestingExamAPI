@@ -15,33 +15,33 @@ namespace TestingExamAPI.Controllers
             _userManager = userManager;
         }
 
-        // GET: UserController
         [HttpGet]
         public List<User> GetAll()
         {
             return _userManager.GetAllUsers().ToList();
         }
 
-        // GET: UserController/Details/5
         [HttpGet("{id}")]
         public User Get(int id)
         {
             return _userManager.GetById(id);
         }
 
-        // GET: UserController/Create
-        public User Create(User user)
+        [HttpPost]
+        public IActionResult Create([FromBody] User user)
         {
-            return _userManager.CreateUser(user);
+            return Ok(_userManager.CreateUser(user));
         }
 
-        // GET: UserController/Edit/5
-        public User Edit(User user)
+        //DOESN'T WORK
+        [HttpPut]
+        public IActionResult Edit([FromBody] User user)
         {
-            return _userManager.UpdateUser(user);
+            return Ok(_userManager.UpdateUser(user));
         }
 
-        // GET: UserController/Delete/5
+        //DOESN'T ACTUALLY DELETE FROM DB
+        [HttpDelete("{id}")]
         public User Delete(int id)
         {
             return _userManager.DeleteUser(id);

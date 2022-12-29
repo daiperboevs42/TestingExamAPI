@@ -1,23 +1,18 @@
 ﻿using System.Net.Http.Headers;
-using System.Text.Json;
 using TestingExamAPI.Consumer;
-using System.Net.Http.Headers;
-using System.Text.Json;
+using System.Net.Http.Json;
+using System.Reflection;
 
-using HttpClient client = new();
-client.DefaultRequestHeaders.Accept.Clear();
-client.DefaultRequestHeaders.Accept.Add(
-    new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-
-await ProcessRepositoriesAsync(client);
-
-static async Task ProcessRepositoriesAsync(HttpClient client)
+namespace TestingExamAPI.Consumer
 {
-    await using Stream stream =
-    await client.GetStreamAsync("https://localhost:44316/user");
-    var users =
-        await JsonSerializer.DeserializeAsync<List<User>>(stream);
-    foreach (var user in users)
-        Console.Write(user);
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Printer pront = new Printer();
+            new RequestMaker();
+            pront.Options();
+        }
+    }
 }
