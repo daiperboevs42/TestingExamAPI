@@ -21,12 +21,13 @@ namespace TestingExamAPI.Consumer
         }
 
 
-        public static async Task GetAllUsers()
+        public static async Task<HttpResponseMessage> GetAllUsers()
         {
             HttpResponseMessage response =
             await client.GetAsync("https://localhost:44316/user/");
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
+            return response;
         }
         public static async Task GetSpecificUser()
         {

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingExamAPI.Core", "Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingExamAPI.Infrastructure", "TestingExamAPI.Infrastructure\TestingExamAPI.Infrastructure.csproj", "{04DE90C5-076B-40CE-8926-E454D51A5170}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingExamAPI.Consumer", "TestingExamAPI.Consumer\TestingExamAPI.Consumer.csproj", "{ABEA2E77-6DEA-4744-87A4-8CCD313B732F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingExamAPI.Consumer", "TestingExamAPI.Consumer\TestingExamAPI.Consumer.csproj", "{ABEA2E77-6DEA-4744-87A4-8CCD313B732F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingExamAPI.Tests", "TestingExamAPI.Tests\TestingExamAPI.Tests.csproj", "{C11CADB7-0753-476C-A312-D41CEE76297D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{ABEA2E77-6DEA-4744-87A4-8CCD313B732F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABEA2E77-6DEA-4744-87A4-8CCD313B732F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABEA2E77-6DEA-4744-87A4-8CCD313B732F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C11CADB7-0753-476C-A312-D41CEE76297D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11CADB7-0753-476C-A312-D41CEE76297D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C11CADB7-0753-476C-A312-D41CEE76297D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11CADB7-0753-476C-A312-D41CEE76297D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
