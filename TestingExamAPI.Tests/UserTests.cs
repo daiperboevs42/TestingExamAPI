@@ -13,7 +13,7 @@ namespace TestingExamAPI.Tests
     {
             private readonly IPactBuilderV3 pactBuilder;
 
-            public UserApiConsumerTests()
+            public UserTests()
             {
                 // Use default pact directory ..\..\pacts and default log
                 // directory ..\..\logs
@@ -30,7 +30,7 @@ namespace TestingExamAPI.Tests
                 // Arrange
                 this.pactBuilder
                     .UponReceiving("A GET request to retrieve the something")
-                        .Given("There is a something with id 'tester'")
+                        .Given("There is a user with the ID 1")
                         .WithRequest(HttpMethod.Get, "/somethings/tester")
                         .WithHeader("Accept", "application/json")
                     .WillRespond()
