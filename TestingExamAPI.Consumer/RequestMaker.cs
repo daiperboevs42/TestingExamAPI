@@ -14,7 +14,7 @@ namespace TestingExamAPI.Consumer
         static HttpClient client = new HttpClient();
         public RequestMaker()
         {
-            client.BaseAddress = new Uri("https://localhost:44316");
+            client.BaseAddress = new Uri("http://localhost:49736");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
@@ -24,7 +24,7 @@ namespace TestingExamAPI.Consumer
         public static async Task<HttpResponseMessage> GetAllUsers()
         {
             HttpResponseMessage response =
-            await client.GetAsync("https://localhost:44316/user/");
+            await client.GetAsync("http://localhost:49736/user/");
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
             return response;
@@ -32,7 +32,7 @@ namespace TestingExamAPI.Consumer
         public static async Task GetSpecificUser()
         {
             HttpResponseMessage response =
-            await client.GetAsync("https://localhost:44316/user/1");
+            await client.GetAsync("http://localhost:49736/user/1");
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
         }
@@ -41,7 +41,7 @@ namespace TestingExamAPI.Consumer
         {
             var userToCreate = new User() { Id = 5, Name = "The Hot Single Near You", Email = "TotallyLegitEmail@Yahoo.dk", IsAvailable = true };
             HttpResponseMessage response =
-            await client.PostAsJsonAsync($"https://localhost:44316/user", userToCreate);
+            await client.PostAsJsonAsync($"http://localhost:49736/user", userToCreate);
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
         }
@@ -50,7 +50,7 @@ namespace TestingExamAPI.Consumer
         {
             var userToUpdate = new User() { Id = 1, Name = "Martin Emil Wøbbe", Email = "SomeEmail@Yahoo.dk", IsAvailable = true };
             HttpResponseMessage response =
-            await client.PutAsJsonAsync($"https://localhost:44316/user/", userToUpdate);
+            await client.PutAsJsonAsync($"http://localhost:49736/user/", userToUpdate);
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
         }
@@ -58,7 +58,7 @@ namespace TestingExamAPI.Consumer
         public static async Task DeleteUser()
         {
             HttpResponseMessage response =
-            await client.DeleteAsync($"https://localhost:44316/user/4");
+            await client.DeleteAsync($"http://localhost:49736/user/4");
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
         }

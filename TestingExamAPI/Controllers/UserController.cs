@@ -16,15 +16,15 @@ namespace TestingExamAPI.Controllers
         }
 
         [HttpGet]
-        public List<User> GetAll()
+        public IActionResult GetAll()
         {
-            return _userManager.GetAllUsers().ToList();
+            return Ok(_userManager.GetAllUsers().ToList());
         }
 
         [HttpGet("{id}")]
-        public User Get(int id)
+        public IActionResult Get(int id)
         {
-            return _userManager.GetById(id);
+            return Ok(_userManager.GetById(id));
         }
 
         [HttpPost]
@@ -42,9 +42,9 @@ namespace TestingExamAPI.Controllers
 
         //DOESN'T ACTUALLY DELETE FROM DB
         [HttpDelete("{id}")]
-        public User Delete(int id)
+        public IActionResult Delete(int id)
         {
-            return _userManager.DeleteUser(id);
+            return Ok(_userManager.DeleteUser(id));
         }
 
     }
