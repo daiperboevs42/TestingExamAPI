@@ -29,38 +29,42 @@ namespace TestingExamAPI.Consumer
             Console.Write(responseBody);
             return response;
         }
-        public static async Task GetSpecificUser()
+        public static async Task<HttpResponseMessage> GetSpecificUser()
         {
             HttpResponseMessage response =
             await client.GetAsync("http://localhost:49736/user/1");
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
+            return response;
         }
 
-        public static async Task CreateUser()
+        public static async Task<HttpResponseMessage> CreateUser()
         {
             var userToCreate = new User() { Id = 5, Name = "The Hot Single Near You", Email = "TotallyLegitEmail@Yahoo.dk", IsAvailable = true };
             HttpResponseMessage response =
             await client.PostAsJsonAsync($"http://localhost:49736/user", userToCreate);
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
+            return response;
         }
 
-        public static async Task UpdateUser()
+        public static async Task<HttpResponseMessage> UpdateUser()
         {
             var userToUpdate = new User() { Id = 1, Name = "Martin Emil Wøbbe", Email = "SomeEmail@Yahoo.dk", IsAvailable = true };
             HttpResponseMessage response =
             await client.PutAsJsonAsync($"http://localhost:49736/user/", userToUpdate);
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
+            return response;
         }
 
-        public static async Task DeleteUser()
+        public static async Task<HttpResponseMessage> DeleteUser()
         {
             HttpResponseMessage response =
             await client.DeleteAsync($"http://localhost:49736/user/4");
             string responseBody = await response.Content.ReadAsStringAsync();
             Console.Write(responseBody);
+            return response;
         }
 
         
