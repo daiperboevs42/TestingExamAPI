@@ -23,13 +23,16 @@ namespace TestingExamAPI.Consumer
         }
 
 
-        public static async Task<HttpResponseMessage> GetAllUsers()
+        public static async Task<List<User>> GetAllUsers()
         {
             HttpResponseMessage response =
             await client.GetAsync("http://localhost:49736/user/");
             string responseBody = await response.Content.ReadAsStringAsync();
-            Console.Write(responseBody);
-            return response;
+            var returnedUsers = JsonConvert.DeserializeObject<List<User>>(responseBody);
+            var status = response.StatusCode;
+            if (status == System.Net.HttpStatusCode.OK)
+                return returnedUsers;
+            throw new Exception("It went wrong");
         }
         public static async Task<User> GetSpecificUser(int id)
         {
@@ -43,33 +46,42 @@ namespace TestingExamAPI.Consumer
             throw new Exception("It went wrong");
         }
 
-        public static async Task<HttpResponseMessage> CreateUser()
+        public static async Task<User> CreateUser()
         {
             var userToCreate = new User() { Id = 5, Name = "The Hot Single Near You", Email = "TotallyLegitEmail@Yahoo.dk", IsAvailable = true };
             HttpResponseMessage response =
             await client.PostAsJsonAsync($"http://localhost:49736/user", userToCreate);
             string responseBody = await response.Content.ReadAsStringAsync();
-            Console.Write(responseBody);
-            return response;
+            var createdUser = JsonConvert.DeserializeObject<User>(responseBody);
+            var status = response.StatusCode;
+            if (status == System.Net.HttpStatusCode.OK)
+                return createdUser;
+            throw new Exception("It went wrong");
         }
 
-        public static async Task<HttpResponseMessage> UpdateUser()
+        public static async Task<User> UpdateUser()
         {
             var userToUpdate = new User() { Id = 1, Name = "Martin Emil Wøbbe", Email = "SomeEmail@Yahoo.dk", IsAvailable = true };
             HttpResponseMessage response =
             await client.PutAsJsonAsync($"http://localhost:49736/user/", userToUpdate);
             string responseBody = await response.Content.ReadAsStringAsync();
-            Console.Write(responseBody);
-            return response;
+            var updatedUser = JsonConvert.DeserializeObject<User>(responseBody);
+            var status = response.StatusCode;
+            if (status == System.Net.HttpStatusCode.OK)
+                return updatedUser;
+            throw new Exception("It went wrong");
         }
 
-        public static async Task<HttpResponseMessage> DeleteUser()
+        public static async Task<User> DeleteUser()
         {
             HttpResponseMessage response =
             await client.DeleteAsync($"http://localhost:49736/user/4");
             string responseBody = await response.Content.ReadAsStringAsync();
-            Console.Write(responseBody);
-            return response;
+            var deletedUser = JsonConvert.DeserializeObject<User>(responseBody);
+            var status = response.StatusCode;
+            if (status == System.Net.HttpStatusCode.OK)
+                return deletedUser;
+            throw new Exception("It went wrong");
         }
 
         

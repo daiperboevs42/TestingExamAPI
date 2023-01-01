@@ -14,11 +14,13 @@ namespace TestingExamAPI.Consumer
 
             try
             {
-                //RequestMaker.GetAllUsers().GetAwaiter().GetResult();
-                RequestMaker.GetSpecificUser(1).GetAwaiter().GetResult();
-                //RequestMaker.CreateUser().GetAwaiter().GetResult();
-                //RequestMaker.UpdateUser().GetAwaiter().GetResult();
-                //RequestMaker.DeleteUser().GetAwaiter().GetResult();
+                var result = RequestMaker.GetAllUsers().GetAwaiter().GetResult();
+                //var result = RequestMaker.GetSpecificUser(1).GetAwaiter().GetResult();
+                //var result = RequestMaker.CreateUser().GetAwaiter().GetResult();
+                //var result = RequestMaker.UpdateUser().GetAwaiter().GetResult();
+                //var result = RequestMaker.DeleteUser().GetAwaiter().GetResult();
+
+                Console.WriteLine(result);
             }
             catch (Exception ex)
             { Console.WriteLine(ex.ToString()); }
