@@ -47,7 +47,7 @@ namespace TestingExamAPI.Tests
                 {
                     // Act
                     var client = new RequestMaker(ctx.MockServerUri);
-                    var something = await client.GetAllUsers("user");
+                    var User = await client.GetSpecificUser();
 
                     // Assert
                     Assert.Equal("user", User.Id);
