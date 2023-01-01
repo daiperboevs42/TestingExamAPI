@@ -14,9 +14,9 @@ namespace TestingExamAPI.Consumer
     public class RequestMaker
     {
         static HttpClient client = new HttpClient();
-        public RequestMaker()
+        public RequestMaker(Uri baseUri = null)
         {
-            client.BaseAddress = new Uri("http://localhost:49736");
+            client = new HttpClient { BaseAddress = baseUri ?? new Uri("http://localhost:49736") };
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));

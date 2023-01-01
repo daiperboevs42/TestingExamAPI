@@ -13,7 +13,7 @@ namespace TestingExamAPI.Tests
     {
             private readonly IPactBuilderV3 pactBuilder;
 
-            public UserApiConsumerTests()
+            public UserTests()
             {
                 // Use default pact directory ..\..\pacts and default log
                 // directory ..\..\logs
@@ -32,7 +32,6 @@ namespace TestingExamAPI.Tests
                     .UponReceiving("A GET request to retrieve the something")
                         .Given("There is a something with id 'tester'")
                         .WithRequest(HttpMethod.Get, "/somethings/tester")
-                        .WithHeader("Accept", "application/json")
                     .WillRespond()
                         .WithStatus(HttpStatusCode.OK)
                         .WithHeader("Content-Type", "application/json; charset=utf-8")
@@ -47,10 +46,10 @@ namespace TestingExamAPI.Tests
                 {
                     // Act
                     var client = new RequestMaker(ctx.MockServerUri);
-                    var User = await client.GetSpecificUser();
+                    var User = RequestMaker.GetSpecificUser(1);
 
                     // Assert
-                    Assert.Equal("user", User.Id);
+                    Assert.Equal("user", User.Id.ToString());
                 });
             }
         
