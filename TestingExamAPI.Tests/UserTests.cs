@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using PactNet;
 using TestingExamAPI.Consumer;
+using TestingExamAPI.Consumer.Entities;
 using Xunit;
 
 namespace TestingExamAPI.Tests

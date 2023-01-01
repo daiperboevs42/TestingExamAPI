@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingExamAPI.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingExamAPI.Consumer", "TestingExamAPI.Consumer\TestingExamAPI.Consumer.csproj", "{ABEA2E77-6DEA-4744-87A4-8CCD313B732F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingExamAPI.Tests", "TestingExamAPI.Tests\TestingExamAPI.Tests.csproj", "{C11CADB7-0753-476C-A312-D41CEE76297D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingExamAPI.Tests", "TestingExamAPI.Tests\TestingExamAPI.Tests.csproj", "{C11CADB7-0753-476C-A312-D41CEE76297D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -33,11 +33,12 @@ namespace TestingExamAPI.Infrastructure
                 Name = "Martin Emil Wøbbe",
                 Email = "SomeEmail@Yahoo.dk",
                 IsAvailable = false,
-                Interests = new List<Interest>
-                {
-                    interest1,interest4,interest5
-                },
-                Preferences = new List<Preference> { preference2 }
+            //    Interests = new List<Interest>
+            //    {
+            //        interest1,interest4,interest5
+            //    },
+            //    Preferences = new List<Preference> { preference2 }
+            //
             }).Entity;
 
             var user2 = context.Users.Add(new User()
@@ -45,11 +46,11 @@ namespace TestingExamAPI.Infrastructure
                 Name = "Martin Park Brodersen",
                 Email = "SomeOtherEmail@Yahoo.dk",
                 IsAvailable = true,
-                Interests = new List<Interest>
-                {
-                    interest2,interest3,interest5, interest7
-                },
-                Preferences = new List<Preference> { preference1, preference2 }
+                //Interests = new List<Interest>
+                //{
+                //    interest2,interest3,interest5, interest7
+                //},
+                //Preferences = new List<Preference> { preference1, preference2 }
             }).Entity;
 
             var user3 = context.Users.Add(new User()
@@ -57,11 +58,11 @@ namespace TestingExamAPI.Infrastructure
                 Name = "Tienesh Sivasubremaniyam",
                 Email = "SomeSeperateEmail@Yahoo.dk",
                 IsAvailable = true,
-                Interests = new List<Interest>
-                {
-                    interest2,interest6,interest7, interest8
-                },
-                Preferences = new List<Preference> { preference2, preference3 }
+                //Interests = new List<Interest>
+                //{
+                //    interest2,interest6,interest7, interest8
+                //},
+                //Preferences = new List<Preference> { preference2, preference3 }
             }).Entity;
 
             var user4 = context.Users.Add(new User()
@@ -69,11 +70,11 @@ namespace TestingExamAPI.Infrastructure
                 Name = "Non Descript Female",
                 Email = "TheEmail@Yahoo.dk",
                 IsAvailable = true,
-                Interests = new List<Interest>
-                {
-                    interest1,interest6,interest8
-                },
-                Preferences = new List<Preference> { preference2, preference3 }
+                //Interests = new List<Interest>
+                //{
+                //    interest1,interest6,interest8
+                //},
+                //Preferences = new List<Preference> { preference2, preference3 }
             }).Entity;
 
 

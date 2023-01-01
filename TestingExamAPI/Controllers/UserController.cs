@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TestingExamAPI.Core.Entities;
 using TestingExamAPI.Core.Interfaces;
 
@@ -24,7 +25,10 @@ namespace TestingExamAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_userManager.GetById(id));
+            User foundUser = _userManager.GetById(id);
+            if (foundUser != null)
+                return Ok(foundUser);
+            else return BadRequest();
         }
 
         [HttpPost]

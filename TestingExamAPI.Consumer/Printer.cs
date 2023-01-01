@@ -14,8 +14,8 @@ namespace TestingExamAPI.Consumer
 
             try
             {
-                RequestMaker.GetAllUsers().GetAwaiter().GetResult();
-                //RequestMaker.GetSpecificUser().GetAwaiter().GetResult();
+                //RequestMaker.GetAllUsers().GetAwaiter().GetResult();
+                RequestMaker.GetSpecificUser(1).GetAwaiter().GetResult();
                 //RequestMaker.CreateUser().GetAwaiter().GetResult();
                 //RequestMaker.UpdateUser().GetAwaiter().GetResult();
                 //RequestMaker.DeleteUser().GetAwaiter().GetResult();

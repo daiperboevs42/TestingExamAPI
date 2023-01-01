@@ -19,12 +19,12 @@ namespace TestingExamAPI.Core.Services
         public List<User> FindAllPairings(User user)
         {
             var pairs = new List<User>();
-            var allUsers = _userRepository.GetAll();
-            foreach (User u in allUsers)
-            {
-                if(u.Interests == user.Interests && u.IsAvailable)
-                    pairs.Add(u);
-            }
+            //var allUsers = _userRepository.GetAll();
+            //foreach (User u in allUsers)
+            //{
+            //    if(u.Interests == user.Interests && u.IsAvailable)
+            //        pairs.Add(u);
+            //}
             return pairs;
         }
 

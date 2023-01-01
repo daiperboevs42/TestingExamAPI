@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TestingExamAPI.Consumer
+namespace TestingExamAPI.Consumer.Entities
 {
     public class User
     {
@@ -8,5 +8,7 @@ namespace TestingExamAPI.Consumer
         public string Name { get; set; }
         public string Email { get; set; }
         public bool IsAvailable { get; set; }
+        //public List<Interest>? Interests { get; set; }
+        //public List<Preference>? Preferences { get; set; }
     }
 }
