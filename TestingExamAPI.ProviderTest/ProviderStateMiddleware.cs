@@ -1,17 +1,14 @@
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
-using Xunit;
 using TestingExamAPI.Core.Entities;
 
-namespace Provider.Tests
+namespace TestingExamAPI.ProviderTest
 {
     public class ProviderStateMiddleware
     {
@@ -24,28 +21,49 @@ namespace Provider.Tests
             providerStates = new Dictionary<string, Action>
             {
                 {
-                    "1", () =>
-                    AddTesterIfItDoesntExist(1)
+                    "There is a something with id '1,2,3 & 4'",
+                    AddUserIfDoesntExist
                 }
             };
         }
 
-        private void AddTesterIfItDoesntExist(int id)
+        private void AddUserIfDoesntExist()
         {
-            var dataDirectory = Directory.CreateDirectory(Path.Combine("..", "..", "..", "data"));
-            var dataFilePath = Path.Combine(dataDirectory.FullName, "somethings.json");
+            var dataDirectory = Directory.CreateDirectory(Path.Combine("..", "..", "..","..", "data"));
+            var dataFilePath = Path.Combine(dataDirectory.FullName, "users.json");
             var fileData = File.Exists(dataFilePath) ? File.ReadAllText(dataFilePath) : null;
             var userData = string.IsNullOrEmpty(fileData)
                 ? new List<User>()
                 : JsonConvert.DeserializeObject<List<User>>(fileData);
-            if (!userData.Any(user => user.Id == id))
+            if (!userData.Any(user => user.Id == 1))
             {
                 userData.Add(new User()
                 {
                     Id = 1,
-                    Name = "NotAMartin",
-                    Email = "Awesomepossum@gmail.com",
-                    IsAvailable = true
+                    Name = "Martin Emil Wøbbe",
+                    Email = "SomeEmail@Yahoo.dk",
+                    IsAvailable = false
+                });
+                userData.Add(new User()
+                {
+                    Id = 2,
+                    Name = "Martin Park Brodersen",
+                    Email = "SomeOtherEmail@Yahoo.dk",
+                    IsAvailable = true,
+                });
+                userData.Add(new User()
+                { 
+                    Id = 3,
+                    Name = "Tienesh Sivasubremaniyam",
+                    Email = "SomeSeperateEmail@Yahoo.dk",
+                    IsAvailable = true,
+                });
+                userData.Add(new User()
+                {
+                    Id = 4,
+                    Name = "Non Descript Female",
+                    Email = "TheEmail@Yahoo.dk",
+                    IsAvailable = true,
                 });
             }
             File.WriteAllText(dataFilePath, JsonConvert.SerializeObject(userData));
@@ -82,5 +100,6 @@ namespace Provider.Tests
                 await context.Response.WriteAsync(string.Empty);
             }
         }
+
     }
 }

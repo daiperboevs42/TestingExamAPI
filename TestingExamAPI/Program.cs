@@ -1,48 +1,21 @@
-using Microsoft.EntityFrameworkCore;
-using TestingExamAPI.Core.Entities;
-using TestingExamAPI.Core.Interfaces;
-using TestingExamAPI.Core.Services;
-using TestingExamAPI.Infrastructure;
-using TestingExamAPI.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using TestingExamAPI;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddDbContext<TestingExamAPIContext>(opt => opt.UseInMemoryDatabase("TestingExamAPIDb"));
-
-builder.Services.AddScoped<IRepository<User>, UserRepository>();
-builder.Services.AddScoped<IRepository<Interest>, InterestRepository>();
-builder.Services.AddScoped<IRepository<Preference>, PreferenceRepository>();
-builder.Services.AddScoped<IUserManager, UserManager>();
-builder.Services.AddScoped<IPairingManager, PairingManager>();
-builder.Services.AddTransient<IDbInitializer, DbInitializer>();
-
-
-// Add services to the container.
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+namespace TestingExamAPI
 {
-
-    using (var scope = app.Services.CreateScope())
+    public class Program
     {
-        var services = scope.ServiceProvider;
-        var dbContext = services.GetService<TestingExamAPIContext>();
-        var dbInitializer = services.GetService<IDbInitializer>();
-        dbInitializer.Initialize(dbContext);
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
-
-

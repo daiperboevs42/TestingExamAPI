@@ -4,15 +4,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace Provider.Tests
 {
     public class TestStartup
     {
-        private readonly Program inner;
+        private StartUp inner;
 
         public TestStartup()
         {
-            inner = new Program();
+            inner = new StartUp();
         }
 
         //public void ConfigureServices(IServiceCollection services)
