@@ -1,4 +1,4 @@
-﻿using API.Provider;
+﻿using TestingExamAPI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,23 +8,23 @@ namespace Provider.Tests
 {
     public class TestStartup
     {
-        private readonly Startup inner;
+        private readonly Program inner;
 
-        public TestStartup(IConfiguration configuration)
+        public TestStartup()
         {
-            inner = new Startup(configuration);
+            inner = new Program();
         }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            inner.ConfigureServices(services);
-        }
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    inner.ConfigureServices(services);
+        //}
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            app.UseMiddleware<ProviderStateMiddleware>();
+        //public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        //{
+        //    app.UseMiddleware<ProviderStateMiddleware>();
 
-            inner.Configure(app, env);
-        }
+        //    inner.Configure(app, env);
+        //}
     }
 }

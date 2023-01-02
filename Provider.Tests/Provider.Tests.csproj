@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\API.Provider\API.Provider.csproj" />
+    <ProjectReference Include="..\TestingExamAPI\TestingExamAPI.csproj" />
   </ItemGroup>
 
 </Project>

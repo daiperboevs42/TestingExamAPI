@@ -30,7 +30,6 @@ namespace TestingExamAPI.Infrastructure
 
             var user1 = context.Users.Add(new User()
             { 
-                Id = 1,
                 Name = "Martin Emil Wøbbe",
                 Email = "SomeEmail@Yahoo.dk",
                 IsAvailable = false,
@@ -44,7 +43,6 @@ namespace TestingExamAPI.Infrastructure
 
             var user2 = context.Users.Add(new User()
             {
-                Id = 2,
                 Name = "Martin Park Brodersen",
                 Email = "SomeOtherEmail@Yahoo.dk",
                 IsAvailable = true,
@@ -57,7 +55,6 @@ namespace TestingExamAPI.Infrastructure
 
             var user3 = context.Users.Add(new User()
             {
-                Id = 3, 
                 Name = "Tienesh Sivasubremaniyam",
                 Email = "SomeSeperateEmail@Yahoo.dk",
                 IsAvailable = true,
@@ -70,7 +67,6 @@ namespace TestingExamAPI.Infrastructure
 
             var user4 = context.Users.Add(new User()
             {
-                Id = 4, 
                 Name = "Non Descript Female",
                 Email = "TheEmail@Yahoo.dk",
                 IsAvailable = true,
