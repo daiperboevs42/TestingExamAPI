@@ -17,7 +17,7 @@ namespace TestingExamAPI.Tests
             {
                 // Use default pact directory ..\..\pacts and default log
                 // directory ..\..\logs
-                var pact = Pact.V3("Something API Consumer", "Something API", new PactConfig());
+                var pact = Pact.V3("User API Consumer", "User API", new PactConfig());
 
                 // Initialize Rust backend
                 this.pactBuilder = pact.WithHttpInteractions();
@@ -29,27 +29,27 @@ namespace TestingExamAPI.Tests
 
                 // Arrange
                 this.pactBuilder
-                    .UponReceiving("A GET request to retrieve the something")
-                        .Given("There is a user with the ID 1")
-                        .WithRequest(HttpMethod.Get, "/somethings/tester")
+                    .UponReceiving("A GET request to retrieve a User")
+                        .Given("There is a user with the ID 3")
+                        .WithRequest(HttpMethod.Get, "/user")
                     .WillRespond()
                         .WithStatus(HttpStatusCode.OK)
                         .WithHeader("Content-Type", "application/json; charset=utf-8")
                         .WithJsonBody(new
-                        { Id = 1, 
-                            Name = "Martin Park Brodersen", 
-                            Email = "SomeOtherEmail@Yahoo.dk", 
-                            IsAvailable = true 
+                        { Id = 3,
+                            Name = "Tienesh Sivasubremaniyam",
+                            Email = "SomeSeperateEmail@Yahoo.dk",
+                            IsAvailable = true,
                         });
 
                 await this.pactBuilder.VerifyAsync(async ctx =>
                 {
                     // Act
                     var client = new RequestMaker(ctx.MockServerUri);
-                    var User = RequestMaker.GetSpecificUser(1);
+                    var User = RequestMaker.GetSpecificUser(3);
 
                     // Assert
-                    Assert.Equal("user", User.Id.ToString());
+                    Assert.Equal("3", User.Id.ToString());
                 });
             }
         

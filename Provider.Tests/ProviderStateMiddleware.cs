@@ -45,6 +45,7 @@ namespace Provider.Tests
                     Id = 1,
                     Name = "NotAMartin",
                     Email = "Awesomepossum@gmail.com",
+                    IsAvailable = true
                 });
             }
             File.WriteAllText(dataFilePath, JsonConvert.SerializeObject(userData));
