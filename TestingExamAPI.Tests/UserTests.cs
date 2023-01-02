@@ -44,8 +44,10 @@ namespace TestingExamAPI.Tests
 
                 await this.pactBuilder.VerifyAsync(async ctx =>
                 {
+                    // Act
                     var client = new RequestMaker(ctx.MockServerUri);
                     User User = RequestMaker.GetSpecificUser(3).GetAwaiter().GetResult();
+                    
                     // Assert
                     Assert.Equal("3", User.Id.ToString());
                 });

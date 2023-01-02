@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using TestingExamAPI.Consumer.Entities;
@@ -13,37 +15,47 @@ namespace TestingExamAPI.Consumer
 {
     public class RequestMaker
     {
-        static HttpClient client = new HttpClient();
+        private static HttpClient client;
         public RequestMaker(Uri baseUri = null)
         {
-            client = new HttpClient { BaseAddress = baseUri ?? new Uri("http://localhost:49736") };
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            client = new HttpClient { BaseAddress = baseUri ?? new Uri("http://localhost:49735") };
+            //client.DefaultRequestHeaders.Accept.Clear();
+            //client.DefaultRequestHeaders.Accept.Add(
+            //    new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
 
         public static async Task<List<User>> GetAllUsers()
         {
-            HttpResponseMessage response =
-            await client.GetAsync("http://localhost:49736/user/");
+            //HttpResponseMessage response =
+            //await client.GetAsync("http://localhost:49736/user/");
+
+            var request = new HttpRequestMessage(HttpMethod.Get, "/user");
+            request.Headers.Add("Accept", "application/json");
+            var response = await client.SendAsync(request);
+
             string responseBody = await response.Content.ReadAsStringAsync();
             var returnedUsers = JsonConvert.DeserializeObject<List<User>>(responseBody);
             var status = response.StatusCode;
             if (status == System.Net.HttpStatusCode.OK)
                 return returnedUsers;
-            throw new Exception("It went wrong");
+            throw new Exception("It went wrong \n" + status + response + request);
         }
         public static async Task<User> GetSpecificUser(int id)
         {
-            HttpResponseMessage response =
-            await client.GetAsync($"http://localhost:49736/user/{id}");
+            //HttpResponseMessage response =
+            //await client.GetAsync($"http://localhost:49736/user/{id}");
+
+            var request = new HttpRequestMessage(HttpMethod.Get, "/user/" + id);
+            request.Headers.Add("Accept", "application/json");
+            var response = await client.SendAsync(request);
+
             var responseBody = await response.Content.ReadAsStringAsync();
             var returnedUser = JsonConvert.DeserializeObject<User>(responseBody);
             var status = response.StatusCode;
             if (status == System.Net.HttpStatusCode.OK)
                 return returnedUser;
-            throw new Exception("It went wrong");
+            throw new Exception("It went wrong \n" + request );
         }
 
         public static async Task<User> CreateUser()
